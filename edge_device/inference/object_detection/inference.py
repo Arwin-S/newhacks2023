@@ -1,25 +1,45 @@
 from ultralytics import YOLO
-import cv2
-import time
+import torch
+import cv2 as cv
 
-
+# YOLO v8 Nano
 model = YOLO('yolov8n.pt')
 
-img = cv2.imread('yolo.jpg')
+print("loaded")
 
-# First run to 'warm-up' the model
-model.predict(source=img, save=False, save_txt=False, conf=0.5, verbose=False)
+# Webcam
+cam = cv.VideoCapture(1, cv.CAP_DSHOW)
 
-# # Second run
-t_start = time.monotonic()
-results = model.predict(source=img, save=False, save_txt=False, conf=0.5, verbose=False)
-dt = time.monotonic() - t_start
-print("dT:", dt)
+i = 0
 
-# Show results
-boxes = results[0].boxes
-names = model.names
-confidence, class_ids = boxes.conf, boxes.cls.int()
-rects = boxes.xyxy.int()
-for ind in range(boxes.shape[0]):
-    print("Rect:", names[class_ids[ind].item()], confidence[ind].item(), rects[ind].tolist())
+while True:
+
+    # Debugging
+    # print(i)
+    # i+=1
+
+    ret,frame = cam.read()
+
+    results = model(frame, show=True, conf=0.4, save=False, classes=0)
+
+    if cv.waitKey(1) == ord('q'):
+        break
+
+# print("Length")
+# print(len(results))
+
+count = 0
+
+for r in results:
+    boxArr = r.boxes.xyxy
+
+boxArrDim = boxArr.shape
+
+print(boxArrDim[0])
+
+
+# SKU110K dataset
+# model.train(data='custom.yaml', epochs=3)
+
+# Run env
+# env/Scripts/Activate.ps1

@@ -1,3 +1,4 @@
+.venv
 edge_device/.venv
 edge_device/.venv/bin/convert-caffe2-to-onnx
 edge_device/.venv/bin/convert-onnx-to-caffe2
@@ -9997,3 +9998,6 @@ edge_device/.venv/lib/python3.11/site-packages/torch.libs/libarm_compute-ed26852
 edge_device/.venv/lib/python3.11/site-packages/torch.libs/libgfortran-b6d57c85.so.5.0.0
 edge_device/.venv/lib/python3.11/site-packages/torch.libs/libgomp-6e1a1d1b.so.1.0.0
 edge_device/.venv/lib/python3.11/site-packages/torch.libs/libopenblasp-r0-56e95da7.3.24.so
+edge_device/inference/object_detection/best.onnx
+edge_device/inference/object_detection/pytorch_model.pt
+.gitignore
