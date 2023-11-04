@@ -1,12 +1,12 @@
 from ultralytics import YOLO
 
-# print('he')
 import cv2 as cv
 
-# Nano
+# YOLO v8 Nano
 model = YOLO('yolov8n.pt')
 
-cam = cv.VideoCapture(0)
+# Webcam
+cam = cv.VideoCapture(1)
 
 i = 0
 
@@ -18,7 +18,7 @@ while True:
 
     ret,frame = cam.read()
 
-    cv.namedWindow("Webcam Frame", cv.WINDOW_NORMAL)
+    cv.namedWindow("Webcam", cv.WINDOW_NORMAL)
 
     results = model(frame, show=True, conf=0.4, save=False)
 

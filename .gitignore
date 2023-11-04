@@ -1,3 +1,4 @@
+.venv
 edge_device/.venv
 edge_device/.venv/bin/convert-caffe2-to-onnx
 edge_device/.venv/bin/convert-onnx-to-caffe2
