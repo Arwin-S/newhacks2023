@@ -6,7 +6,7 @@ import cv2 as cv
 # Nano
 model = YOLO('yolov8n.pt')
 
-cam = cv.VideoCapture(1)
+cam = cv.VideoCapture(0)
 
 i = 0
 
