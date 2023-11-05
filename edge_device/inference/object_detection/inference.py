@@ -30,7 +30,6 @@ while True:
 
 # print(boxArrDim[0])
 
-
 # SKU110K dataset
 # model.train(data='custom.yaml', epochs=3)
 
