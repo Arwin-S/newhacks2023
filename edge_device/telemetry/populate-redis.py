@@ -36,4 +36,5 @@ def populateAll():
             print("Error!")
 
 
-populateAll()
+# populateAll()
+deleteAllEntries()
