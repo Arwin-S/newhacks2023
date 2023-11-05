@@ -6,11 +6,11 @@ import random
 from matplotlib import pyplot as plt
 import seaborn as sns
 
+# Seaborn styling
 sns.set(style="dark") 
 plt.style.use("dark_background")
 
 # Database Credentials
-
 host = 'redis-14753.c279.us-central1-1.gce.cloud.redislabs.com'
 port = 14753
 password = 'Clny2osKL7XFa0ySfeOZPKg67aVMeL7N'
@@ -19,34 +19,38 @@ password = 'Clny2osKL7XFa0ySfeOZPKg67aVMeL7N'
 redis_client = redis.StrictRedis(host=host, port=port, password=password, db=0)
 
 # Publish to database
-redis_client.set('oh', 'value')
+# redis_client.set('oh', 'value')
 
 # Get from database
 # print(redis_client.get('name'))
 
 
-redis_client.set('key', 'value')
+# redis_client.set('key', 'value')
 
 
+# Time series
 ts = redis_client.ts()
+
 # ts.create('ts_key')
 
 # Empty timeseries before writing
 
-retention_time = 1000000 # 1 hour retention
+retention_time = 36000000 # 1 hour retention
+
+# Delete existing entries
 try:
     ts.delete("det", "-", "+")
 except Exception as e:
     print("")
 
-
+# Create key-values
 try:
     ts.create("human",  retention_msecs=retention_time)
     ts.create("chair",  retention_msecs=retention_time)
     ts.create("table",  retention_msecs=retention_time)
-
 except Exception as e:
     print("")
+
 
 classes = ({"human":0.8}, {"chair":0.1}, {"table":0.1})
 
