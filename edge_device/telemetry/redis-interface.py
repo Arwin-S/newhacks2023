@@ -70,7 +70,8 @@ while True:
         chosen_class = random.choices(class_names, probabilities)[0]
         index = class_names.index(chosen_class)
         count[index] += 1
-    
+        
+    # print(redis_client.get('name'))
     ts.add("human", "*", count[0], retention_msecs=retention_time)
     ts.add("chair", "*", count[1], retention_msecs=retention_time)
     ts.add("table", "*", count[2], retention_msecs=retention_time)
