@@ -25,16 +25,6 @@ redis_client = redis.StrictRedis(host=host, port=port, password=password, db=0)
 
 ts = redis_client.ts()
 
-# while True:
-#     data = ts.range("person", "-", "+")
-        
-
-#     x = [item[1] for item in data]
-
-#     print(sum(x))
-
-# # print()
-
 count = []
 
 for i in range(0, len(cls) - 1):
@@ -44,20 +34,18 @@ while True:
 
     c = 0
 
+    # Calculation accumulation per class.
     for __ , name in all_classes.items():
         try:
             data = ts.range(name, "-", "+")
-        
             x = [item[1] for item in data]
-
             count[c] = sum(x)
-
-            
         except Exception as e:
             print("")
         
         c+=1
 
+    # Largest 5 values and their keys.
     combined_dict = dict(zip(cls, count))
     values = list(combined_dict.values())
     sorted_values = sorted(values, reverse=True)
@@ -68,12 +56,11 @@ while True:
     print(keys_for_largest_values)
     print(largest_5_values)
 
-        # try: 
-    # plt.bar(keys_for_largest_values, largest_5_values)
-    # plt.pause(0.005)
-    # plt.clf()
-            # time.sleep(0.25)
-        # except Exception as e:
-        #     print("Plot Error!")
-
-#     # print(ts.range("human", "-", "+"))
+    # Plot.
+    try: 
+        plt.bar(keys_for_largest_values, largest_5_values)
+        plt.pause(0.005)
+        plt.clf()
+        time.sleep(0.25)
+    except Exception as e:
+        print("Plot Error!")

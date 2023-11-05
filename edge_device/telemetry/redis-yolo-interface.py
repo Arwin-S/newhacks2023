@@ -20,10 +20,10 @@ if __name__ == "__main__":
 
     ts = redis_client.ts()
 
-    try:
-        ts.delete("det", "-", "+")
-    except Exception as e:
-        print("")
+    # try:
+    #     ts.delete("det", "-", "+")
+    # except Exception as e:
+    #     print("")
 
     percepter = Yolo()
 
