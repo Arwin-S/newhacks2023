@@ -54,14 +54,50 @@ while True:
         x_final = screen_size//2 + x_cos
         y_final = screen_size//2 + y_sin
 
-    
+
+
     pos2 = pygame.Vector2(x_final, y_final)
 
-    pygame.draw.line(surface, "green", pos1,pos2, 2)
     pygame.draw.circle(surface, "green", pos1, 20)
     pygame.draw.circle(surface, "green", pos1, 100, 1)
     pygame.draw.circle(surface, "green", pos1, 215, 1)
     pygame.draw.circle(surface, "green", pos1, 350, 1)
+
+    pygame.draw.line(surface, "green", pos1,pos2, 2)
+
+
+    for i in range(128):
+
+        x_cos2 = line_length * (math.cos(angle - (0.0025 * i)))
+        y_sin2 = line_length * (math.sin(angle - (0.0025 * i)))
+
+        if (angle % 360 >= 0) and  (angle % 360 <= 90):
+
+            x_final2 = screen_size//2 + x_cos2
+            y_final2 = screen_size//2 - y_sin2
+
+        elif (angle % 360 >= 90) and  (angle % 360 <= 180):
+            
+            x_final2 = screen_size//2 - x_cos2
+            y_final2 = screen_size//2 - y_sin2
+
+        elif (angle % 360 >= 90) and  (angle % 360 <= 180):
+            
+            x_final2 = screen_size//2 - x_cos2
+            y_final2 = screen_size//2 + y_sin2
+
+        else:
+
+            
+            x_final2 = screen_size//2 + x_cos2
+            y_final2 = screen_size//2 + y_sin2
+
+        pos3 = pygame.Vector2(x_final2, y_final2)
+
+        pygame.draw.line(surface, (0,(255 - 2*i) ,0), pos1,pos3, 2)
+
+ 
+
     #pygame.draw.circle(surface, (255,255,0), pos1, 500, 2)
 
     
