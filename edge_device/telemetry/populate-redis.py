@@ -1,9 +1,9 @@
 import redis
 
 # Redis Credentials
-host = 'redis-14753.c279.us-central1-1.gce.cloud.redislabs.com'
-port = 14753
-password = 'Clny2osKL7XFa0ySfeOZPKg67aVMeL7N'
+host = 'redis-15344.c99.us-east-1-4.ec2.cloud.redislabs.com'
+port = 15344
+password = ''
 
 redis_client = redis.StrictRedis(host=host, port=port, password=password, db=0)
 
@@ -16,6 +16,8 @@ all_classes = {0: 'person', 1: 'bicycle', 2: 'car', 3: 'motorcycle', 4: 'airplan
 retention_time = 3600000  # 1 hour retention
 
 # Delete all database entries (keys remain)
+
+
 def deleteAllEntries():
     for value, class_name in all_classes.items():
         try:
@@ -24,6 +26,8 @@ def deleteAllEntries():
             print("Error!")
 
 # Set database entries.
+
+
 def populateAll():
     for value, class_name in all_classes.items():
         try:
@@ -32,4 +36,4 @@ def populateAll():
             print("Error!")
 
 
-deleteAllEntries()
+populateAll()

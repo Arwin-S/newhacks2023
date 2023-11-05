@@ -11,12 +11,13 @@ from yolo import Yolo
 if __name__ == "__main__":
 
     # Database Credentials
-    host = 'redis-14753.c279.us-central1-1.gce.cloud.redislabs.com'
-    port = 14753
-    password = 'Clny2osKL7XFa0ySfeOZPKg67aVMeL7N'
+    host = 'redis-15344.c99.us-east-1-4.ec2.cloud.redislabs.com'
+    port = 15344
+    password = ''
 
     # Interfacing
-    redis_client = redis.StrictRedis(host=host, port=port, password=password, db=0)
+    redis_client = redis.StrictRedis(
+        host=host, port=port, password=password, db=0)
 
     ts = redis_client.ts()
 
@@ -34,5 +35,3 @@ if __name__ == "__main__":
         for class_name, count in output.items():
             print(class_name, count)
             ts.add(class_name, "*", count)
-
-
