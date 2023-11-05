@@ -8,19 +8,14 @@ model = YOLO('yolov8n.pt')
 print("loaded")
 
 # Webcam
-cam = cv.VideoCapture(1, cv.CAP_DSHOW)
+cam = cv.VideoCapture(0)
 
-i = 0
 
 while True:
 
-    # Debugging
-    # print(i)
-    # i+=1
-
     ret,frame = cam.read()
 
-    results = model(frame, show=True, conf=0.4, save=False, classes=0)
+    results = model(frame, show=True, conf=0.4, save=False)
 
     if cv.waitKey(1) == ord('q'):
         break
@@ -28,14 +23,12 @@ while True:
 # print("Length")
 # print(len(results))
 
-count = 0
+# for r in results:
+#     boxArr = r.boxes.xyxy
 
-for r in results:
-    boxArr = r.boxes.xyxy
+# boxArrDim = boxArr.shape
 
-boxArrDim = boxArr.shape
-
-print(boxArrDim[0])
+# print(boxArrDim[0])
 
 
 # SKU110K dataset
