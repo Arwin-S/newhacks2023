@@ -30,9 +30,9 @@ if __name__ == "__main__":
     while True:
         percepter.take_img()
         output = percepter.infer()
-        print(type(output))
+        # print(type(output))
         for class_name, count in output.items():
-            # print(class_name, count)
+            print(class_name, count)
             ts.add(class_name, "*", count)
 
 
