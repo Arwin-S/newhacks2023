@@ -1,29 +1,34 @@
 from ultralytics import YOLO
-
-# print('he')
+import torch
 import cv2 as cv
 
-# Nano
-model = YOLO('yolov8n.pt')
+# YOLO v8 Nano
+model = YOLO('best.pt')
 
-cam = cv.VideoCapture(1)
+print("loaded")
 
-i = 0
+# Webcam
+cam = cv.VideoCapture(0)
+
 
 while True:
 
-    # Debugging
-    # print(i)
-    # i+=1
-
     ret,frame = cam.read()
-
-    cv.namedWindow("Webcam Frame", cv.WINDOW_NORMAL)
 
     results = model(frame, show=True, conf=0.4, save=False)
 
     if cv.waitKey(1) == ord('q'):
         break
+
+# print("Length")
+# print(len(results))
+
+# for r in results:
+#     boxArr = r.boxes.xyxy
+
+# boxArrDim = boxArr.shape
+
+# print(boxArrDim[0])
 
 # SKU110K dataset
 # model.train(data='custom.yaml', epochs=3)
