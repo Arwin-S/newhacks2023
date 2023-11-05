@@ -31,5 +31,5 @@ for detected_class in results.boxes.cls:
     else:
         detected_classes[classes[int(detected_class.numpy())]] += 1
 
-print(detected_classes)
+print(detected_classes, type(detected_class))
     
