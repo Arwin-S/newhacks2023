@@ -3,7 +3,7 @@ import torch
 import cv2 as cv
 
 # YOLO v8 Nano
-model = YOLO('best.pt')
+model = YOLO('yolov8n.pt')
 
 print("loaded")
 
@@ -23,12 +23,12 @@ while True:
 # print("Length")
 # print(len(results))
 
-# for r in results:
-#     boxArr = r.boxes.xyxy
+for r in results:
+    boxArr = r.boxes.xyxy
 
-# boxArrDim = boxArr.shape
+boxArrDim = boxArr.shape
 
-# print(boxArrDim[0])
+print(boxArrDim[0])
 
 # SKU110K dataset
 # model.train(data='custom.yaml', epochs=3)
