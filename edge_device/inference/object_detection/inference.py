@@ -3,11 +3,12 @@ import torch
 import cv2 as cv
 
 # YOLO v8 Nano
-model = YOLO('yolov8n.pt')
+model = YOLO('best.pt')
 
 print("loaded")
 
 # Webcam
+# cam = cv.VideoCapture(1, cv.CAP_DSHOW)
 cam = cv.VideoCapture(1, cv.CAP_DSHOW)
 
 i = 0
