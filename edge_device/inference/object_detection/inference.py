@@ -3,7 +3,7 @@ import torch
 import cv2 as cv
 
 # YOLO v8 Nano
-model = YOLO('yolov8n.pt')
+model = YOLO('best.pt')
 
 print("loaded")
 
