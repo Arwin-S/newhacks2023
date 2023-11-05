@@ -26,24 +26,24 @@ while True:
     # x = line_len/2.0*math.sin(angle)
     # y = line_len/2.0*math.cos(angle)
 
-    if angle == 0:
+    if angle == 360:
         angle = 0
 
 
     x_cos = line_length * (math.cos(angle))
     y_sin = line_length * (math.sin(angle))
 
-    if (angle % 360 >= 0) and  (angle % 360 <= 90):
+    if 0 <= angle < 90:
 
         x_final = screen_size//2 + x_cos
         y_final = screen_size//2 - y_sin
 
-    elif (angle % 360 >= 90) and  (angle % 360 <= 180):
+    elif 90 <= angle < 180:
         
         x_final = screen_size//2 - x_cos
         y_final = screen_size//2 - y_sin
 
-    elif (angle % 360 >= 90) and  (angle % 360 <= 180):
+    elif 180 <= angle < 270:
         
         x_final = screen_size//2 - x_cos
         y_final = screen_size//2 + y_sin
@@ -71,17 +71,17 @@ while True:
         x_cos2 = line_length * (math.cos(angle - (0.0025 * i)))
         y_sin2 = line_length * (math.sin(angle - (0.0025 * i)))
 
-        if (angle % 360 >= 0) and  (angle % 360 <= 90):
+        if 0 <= angle < 90:
 
             x_final2 = screen_size//2 + x_cos2
             y_final2 = screen_size//2 - y_sin2
 
-        elif (angle % 360 >= 90) and  (angle % 360 <= 180):
+        elif 90 <= angle < 180:
             
             x_final2 = screen_size//2 - x_cos2
             y_final2 = screen_size//2 - y_sin2
 
-        elif (angle % 360 >= 90) and  (angle % 360 <= 180):
+        elif 180 <= angle < 270:
             
             x_final2 = screen_size//2 - x_cos2
             y_final2 = screen_size//2 + y_sin2
